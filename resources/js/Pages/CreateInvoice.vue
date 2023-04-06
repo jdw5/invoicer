@@ -34,16 +34,56 @@
                             <!-- <Invoice :invoice="dummy"></Invoice> -->
                         </tbody>
                     </table>
-                    <button class="w-full border-dashed border py-2 px-4 mt-4">
+                    <button type="button" @click="showItemModal = true" class="w-full border-dashed border py-2 px-4">
                         Add
                     </button>
                 </div>
                 <div class="flex gap-x-4 justify-end">
                     <SecondaryButton>Cancel</SecondaryButton>
-                    <PrimaryButton>Save</PrimaryButton>
+                    <PrimaryButton>Create</PrimaryButton>
                 </div>
             </form>
         </PagePadding>
+
+        <DialogModal :show="showItemModal" @close="showItemModal = false">
+            <template #title>
+                Delete Invoice
+            </template>
+            <template #content>
+                <div>
+                    <InputLabel for="title" value="Title" />
+                    <TextInput
+                        id="title"
+                        v-model="item.title"
+                        type="text"
+                        class="mt-1 block w-full"
+                        required
+                    />
+                </div>
+                <div>
+                    <InputLabel for="comments" value="Comments" />
+                    <TextInput
+                        id="comments"
+                        v-model="item.comments"
+                        type="text"
+                        class="mt-1 block w-full"
+                        required
+                    />
+                </div>
+                <div>
+                    Single / Time
+                </div>
+                <div>
+                    
+                </div>
+            </template>
+            <template #footer>
+                <div class="flex gap-x-4 justify-end">
+                    <SecondaryButton type="button" @click="showItemModal = false">Cancel</SecondaryButton>
+                    <PrimaryButton type="button" @click="addItem">Add</PrimaryButton>
+                </div>
+            </template>
+        </DialogModal>
     </AppLayout>
 </template>
 
@@ -56,6 +96,20 @@ import PrimaryButton from '@/Components/PrimaryButton.vue'
 import SecondaryButton from '@/Components/SecondaryButton.vue'
 import InputLabel from '@/Components/InputLabel.vue'
 import InputError from '@/Components/InputError.vue'
+import DialogModal from '@/Components/DialogModal.vue'
+import { reactive, ref } from 'vue';
+
+const showItemModal = ref(false)
+const item = reactive({
+    title: '',
+    comments: '',
+    quantity: 1,
+    total: 0
+})
+
+const addItem = () => {
+    console.log(item)
+}
 
 const invoice = useForm({
     name: '',
