@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Invoice;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
-class InvoiceShowController extends Controller
+class InvoiceStatusUpdateController extends Controller
 {
     /**
      * Handle the incoming request.
      */
     public function __invoke(Request $request, $invoice_id)
     {
-        return Inertia::render('Invoice', [
-            // 'invoice' => $request->invoice
-        ]);
+        $request->user()->invoices()->where('reference', $invoice_id)->first();
+
+        return redirect()->back();
     }
 }

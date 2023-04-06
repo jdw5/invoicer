@@ -1,10 +1,14 @@
 <?php
 
-use App\Http\Controllers\CreateInvoiceShowController;
-use App\Http\Controllers\DashboardShowController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\InvoiceStoreController;
+use App\Http\Controllers\DashboardShowController;
+use App\Http\Controllers\InvoiceDestroyController;
+use App\Http\Controllers\CreateInvoiceShowController;
+use App\Http\Controllers\InvoiceShowController;
+use App\Http\Controllers\InvoiceStatusUpdateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +37,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', DashboardShowController::class)->name('dashboard.show');
     Route::get('/invoices/create', CreateInvoiceShowController::class)->name('invoices.create.show');
-    ;
+    Route::post('/invoices/create', InvoiceStoreController::class)->name('invoices.store');
+    Route::post('/invoices/{invoice_id}/status', InvoiceStatusUpdateController::class)->name('invoices.status.update');
+    Route::get('/invoices/{invoice_id}', InvoiceShowController::class)->name('invoices.show');
+    Route::delete('/invoices/{invoice_id}', InvoiceDestroyController::class)->name('invoices.delete');
 });
