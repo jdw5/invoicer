@@ -7,7 +7,7 @@ import { reactive } from 'vue';
 
 const dummy = reactive({
     number: 5,
-    date: '2021-01-01',
+    name: 'Invoice',
     due_date: '2021-01-01',
     status: 'Paid',
     total: 1000
@@ -25,9 +25,21 @@ const dummy = reactive({
                     New Invoice
                 </button>
             </div>
-            <div class="divide-y">
-                <Invoice :invoice="dummy"></Invoice>
-            </div>
+            <table class="w-full table-fixed">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-xs sm:text-sm">#</th>
+                        <th scope="col" class="text-xs sm:text-sm">Name</th>
+                        <th scope="col" class="text-xs sm:text-sm">Status</th>
+                        <th scope="col" class="hidden sm:block text-xs sm:text-sm">Total</th>
+                        <th scope="col" class="text-xs sm:text-sm">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y">
+                    <Invoice :invoice="dummy"></Invoice>
+                </tbody>
+            </table>
+
         </PagePadding>
     </AppLayout>
 </template>

@@ -3,7 +3,7 @@
         <PagePadding>
             <div class="flex justify-between">
                 <h1 class="text-xl font-bold">
-                    Create Name
+                    Create Invoice
                 </h1>
             </div>
             <div class="divide-y">
