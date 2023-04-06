@@ -26,7 +26,7 @@ class InvoiceStoreController extends Controller
         }
 
         if (!$unique) {
-            return back()->withErrors(['reference' => 'Unable to generate a reference number. Please try again.']);
+            return redirect()->back()->withErrors(['reference' => 'Unable to generate a reference number. Please try again.']);
         }
 
         $request->user()->invoices()->create([
