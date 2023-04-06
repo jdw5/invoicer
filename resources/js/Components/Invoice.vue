@@ -1,20 +1,24 @@
 <template>
     <tr class="hover:bg-gray-50 transition duration-150">
-        <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-xs sm:text-sm text-gray-900">{{ invoice.number }}</div>
+        <td class="py-4 whitespace-nowrap">
+            <div class="text-xs sm:text-sm text-gray-900">
+                {{ invoice.number }}
+            </div>
         </td>
-        <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-xs sm:text-sm text-gray-900">{{ invoice.name }}</div>
+        <td class="py-4 whitespace-nowrap">
+            <div class="text-xs sm:text-sm text-gray-900">
+                {{ invoice.name }}
+            </div>
         </td>
-        <td class="px-6 py-4 whitespace-nowrap">
+        <td class="py-4 whitespace-nowrap">
             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                 {{ invoice.status }}
             </span>
         </td>
-        <td class="hidden sm:block px-6 py-4 whitespace-nowrap text-xs text-sm text-gray-500">
+        <td class="hidden sm:table-cell py-4 whitespace-nowrap text-xs text-sm text-gray-500 text-left">
             {{ invoice.total }}
         </td>
-        <td class="px-6 py-4 whitespace-nowrap text-right text-xs sm:text-sm font-medium">
+        <td class="py-4 whitespace-nowrap text-right text-xs sm:text-sm font-medium">
             <Dropdown align="right" width="48">
                 <template #trigger>
                     <svg class="w-6 h-6 stroke-gray-900" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

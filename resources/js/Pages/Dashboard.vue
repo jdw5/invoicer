@@ -4,6 +4,7 @@ import Welcome from '@/Components/Welcome.vue';
 import PagePadding from '@/Components/PagePadding.vue';
 import Invoice from '@/Components/Invoice.vue';
 import { reactive } from 'vue';
+import ExpandButton from '@/Components/ExpandButton.vue';
 
 const dummy = reactive({
     number: 5,
@@ -21,18 +22,24 @@ const dummy = reactive({
                 <h1 class="text-xl font-bold">
                     Invoices
                 </h1>
-                <button class="px-4 py-2 border border-gray-500 rounded">
-                    New Invoice
-                </button>
+                <!-- <ExpandButton>
+                    <template #icon>
+                        +
+                    </template>
+                    <template #text>
+                        New Invoice
+                    </template>
+
+                </ExpandButton> -->
             </div>
-            <table class="w-full table-fixed">
-                <thead>
+            <table class="w-full table-fixed divide-y- divide-gray-300">
+                <thead class="bg-blue-100">
                     <tr>
-                        <th scope="col" class="text-xs sm:text-sm">#</th>
-                        <th scope="col" class="text-xs sm:text-sm">Name</th>
-                        <th scope="col" class="text-xs sm:text-sm">Status</th>
-                        <th scope="col" class="hidden sm:block text-xs sm:text-sm">Total</th>
-                        <th scope="col" class="text-xs sm:text-sm">Actions</th>
+                        <th scope="col" class="text-xs sm:text-sm text-left font-semibold">#</th>
+                        <th scope="col" class="text-xs sm:text-sm text-left font-semibold">Name</th>
+                        <th scope="col" class="text-xs sm:text-sm text-left font-semibold">Status</th>
+                        <th scope="col" class="hidden sm:block text-xs sm:text-sm text-left font-semibold">Total</th>
+                        <th scope="col" class="text-xs sm:text-sm text-left font-semibold">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y">
