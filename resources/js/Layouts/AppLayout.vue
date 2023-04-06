@@ -86,9 +86,10 @@ const logout = () => {
                     </div>
                 </div>
             </nav>
-
+            
             <!-- Page Content -->
-            <main>
+            <main class="relative">
+                <div class="w-full h-24 bg-orange-200"/>
                 <slot />
             </main>
         </div>
